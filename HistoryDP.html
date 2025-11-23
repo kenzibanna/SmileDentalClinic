@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clinic History</title>
+  <link rel="stylesheet" href="DentalProject.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">SMILE CLINIC ✨</div>
+  <ul class="nav-links">
+    <li><a href="DentalProject.html">Home 🏠</a></li>
+    <li><a href="DoctorsDP.html">Our Doctors 🧑‍⚕️</a></li>
+    <li><a href="ServiceDP.html">Our Services 💎</a></li>
+    <li><a href="EmergencyDP.html" class="emergency-btn">Emergency 🚨</a></li>
+    <li><a href="BookingDP.html">Book Now 📅</a></li>
+    <li><a href="HistoryDP.html">Patient History 🗂️</a></li>
+  </ul>
+</nav>
+
+<div class="history-container">
+
+  <h1>Your Patient Profile 🗂️</h1>
+  <p class="subtitle">Log in to securely view your treatment history & appointments.</p>
+
+  <!-- LOGIN BOX -->
+  <div class="history-login-box">
+    <h2>Login to Continue</h2>
+
+    <input type="text" id="username" placeholder="Enter Username">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button class="history-btn" onclick="login()">View My History 📘</button>
+
+    <p id="error-msg"></p>
+  </div>
+
+  <!-- HIDDEN HISTORY SECTION -->
+  <div id="history-section" class="hidden">
+    <h2>📅 Your Past Appointments</h2>
+
+    <table class="history-table">
+      <tr>
+        <th>Date</th>
+        <th>Doctor</th>
+        <th>Service</th>
+        <th>Notes</th>
+      </tr>
+      <tr>
+        <td>Jan 14, 2025</td>
+        <td>Dr. Sarah Hany</td>
+        <td>Teeth Cleaning</td>
+        <td>Follow-up recommended in 6 months</td>
+      </tr>
+      <tr>
+        <td>Feb 2, 2025</td>
+        <td>Dr. Ahmed Amer</td>
+        <td>Root Canal</td>
+        <td>Procedure successful</td>
+      </tr>
+      <tr>
+        <td>Mar 3, 2025</td>
+        <td>Dr. Youmna Galeb</td>
+        <td>Pediatric Checkup</td>
+        <td>All good 😊</td>
+      </tr>
+    </table>
+
+    <br>
+    <button class="logout-btn" onclick="logout()">Log Out ↩️</button>
+  </div>
+
+</div>
+
+
+<script>
+// --- SIMPLE DEMO LOGIN SYSTEM ---
+function login() {
+  let user = document.getElementById("username").value;
+  let pass = document.getElementById("password").value;
+  let error = document.getElementById("error-msg");
+
+  if (user === "" || pass === "") {
+    error.innerHTML = "Please enter both fields.";
+    return;
+  }
+
+  // Demo login (you can upgrade later)
+  if (user === "smile" && pass === "1234") {
+    document.querySelector(".history-login-box").classList.add("hidden");
+    document.getElementById("history-section").classList.remove("hidden");
+  } else {
+    error.innerHTML = "Incorrect username or password.";
+  }
+}
+
+function logout() {
+  document.getElementById("history-section").classList.add("hidden");
+  document.querySelector(".history-login-box").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
