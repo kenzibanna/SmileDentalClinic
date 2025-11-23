@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Doctors – Smile Clinic</title>
+  <link rel="stylesheet" href="DentalProject.css">
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">SMILE CLINIC ✨</div>
+  <ul class="nav-links">
+    <li><a href="DentalProject.html">Home 🏠</a></li>
+    <li><a href="DoctorsDP.html" class="active">Our Doctors 🧑‍⚕️</a></li>
+    <li><a href="ServiceDP.html">Our Services 💎</a></li>
+    <li><a href="EmergencyDP.html" class="emergency-btn">Emergency 🚨</a></li>
+    <li><a href="BookingDP.html">Book Now 📅</a></li>
+   <li><a href="HistoryDP.html">Patient History 🗂️</a></li>
+  </ul>
+</nav>
+
+<section class="doctors-page">
+  <h1>🦷 Meet Our Specialist Team</h1>
+
+  <!-- Single React Container -->
+  <div id="doctors-app"></div>
+</section>
+
+<script>
+  const e = React.createElement;
+  const { useState } = React;
+
+  function DoctorsApp() {
+    const doctors = [
+      {name: "Dr. Ahmed Amer", specialty: "Root Canal Specialist", img: "https://placehold.co/250x250?text=Ahmed"},
+      {name: "Dr. Sarah Hany", specialty: "Cosmetic Dentistry", img: "https://placehold.co/250x250?text=Sarah"},
+      {name: "Dr. Youmna Galeb", specialty: "Pediatric Dentistry", img: "https://placehold.co/250x250?text=Youmna"},
+      {name: "Dr. Mai Mansour", specialty: "Orthodontics", img: "https://placehold.co/250x250?text=Mai"},
+      {name: "Dr. Youssef Kamel", specialty: "Oral Surgery", img: "https://placehold.co/250x250?text=Youssef"}
+    ];
+
+    const specialties = ["All", ...new Set(doctors.map(d => d.specialty))];
+    const [filter, setFilter] = useState("All");
+
+    const filteredDoctors = filter === "All" ? doctors : doctors.filter(d => d.specialty === filter);
+
+    // Filter buttons
+    const filterButtons = e("div", {className: "filter-buttons"},
+      specialties.map(spec =>
+        e("button", {key: spec, onClick: () => setFilter(spec)}, spec)
+      )
+    );
+
+    // Doctor cards
+    const doctorCards = e("div", {className: "doctor-grid"},
+      filteredDoctors.map((doc, index) =>
+        e("div", {key: index, className: "doctor-card"},
+          e("img", {src: doc.img, alt: doc.name}),
+          e("h3", null, doc.name),
+          e("p", null, doc.specialty)
+        )
+      )
+    );
+
+    return e("div", null, filterButtons, doctorCards);
+  }
+
+  ReactDOM.render(e(DoctorsApp), document.getElementById("doctors-app"));
+</script>
+
+</body>
+</html>
