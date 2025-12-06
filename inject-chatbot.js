@@ -10,3 +10,7 @@ fetch("chatbot.html")
     document.body.appendChild(chatbotScript);
   })
   .catch(err => console.error("Chatbot failed to load:", err));
+<script src="inject-chatbot.js"></script>
+<link rel="stylesheet" href="chatbot.css">
+<script src="chatbot.js"></script>
+<script src="inject-chatbot.js"></script>
