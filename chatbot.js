@@ -85,3 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
         return `Thank you! A team member will assist you soon. 😊`;
     }
 });
+<script src="inject-chatbot.js"></script>
+<link rel="stylesheet" href="chatbot.css">
+<script src="chatbot.js"></script>
+<script src="inject-chatbot.js"></script>
+
