@@ -1,13 +1,11 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="chatbot.css">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smile Dental Clinic</title>
   <link rel="stylesheet" href="DentalProject.css">
+  <link rel="stylesheet" href="chatbot.css">
 
   <!-- React CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -29,11 +27,11 @@
     <li><a href="ServiceDP.html">Our Services 💎</a></li>
     <li><a href="EmergencyDP.html" class="emergency-btn">Emergency 🚨</a></li>
     <li><a href="BookingDP.html">Book Now 📅</a></li>
-  <li><a href="HistoryDP.html">Patient History 🗂️</a></li>
+    <li><a href="HistoryDP.html">Patient History 🗂️</a></li>
   </ul>
 </nav>
 
-<!-- Why Choose Us Section (From About Us Page) -->
+<!-- Why Choose Us Section -->
 <section class="about-container">
   <h2>Why Choose Us? 💎</h2>
   <div id="why-choose-us"></div>
@@ -65,7 +63,7 @@
 </style>
 
 <script>
-  // React Without JSX
+  // React Without JSX for Why Choose Us
   const e = React.createElement;
   const { useState } = React;
 
@@ -99,11 +97,10 @@
   );
 </script>
 
-
 <!-- Services Section with React -->
 <section class="services-section">
   <h2>Our Services 🦷</h2>
-  <div id="services-react"></div> <!-- React Component Placeholder -->
+  <div id="services-react"></div>
 </section>
 
 <!-- Buttons -->
@@ -118,7 +115,6 @@
 
 <footer>Smile Dental Clinic © 2025</footer>
 
-<!-- JAVASCRIPT PAGE LINKING -->
 <script>
   function goTo(page) {
     window.location.href = page;
@@ -154,10 +150,9 @@
 
   ReactDOM.render(<FeaturedServices />, document.getElementById("services-react"));
 </script>
-<script src="inject-chatbot.js"></script>
-<!-- Chatbot Widget -->
-<div id="chatbot-icon">💬</div>
 
+<!-- Chatbot -->
+<div id="chatbot-icon">💬</div>
 <div id="chatbot-window">
     <div class="chatbot-header">Smile Dental Support</div>
     <div class="chatbot-messages"></div>
@@ -167,10 +162,9 @@
     </div>
 </div>
 
+<!-- Chatbot Scripts (ONLY INCLUDE ONCE) -->
 <script src="chatbot.js"></script>
 <script src="inject-chatbot.js"></script>
-<link rel="stylesheet" href="chatbot.css">
-<script src="chatbot.js"></script>
 
 </body>
 </html>
