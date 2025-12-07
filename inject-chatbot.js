@@ -1,5 +1,4 @@
-// inject-chatbot.js (fixed - NO JSX)
-
+// inject-chatbot.js (fixed)
 document.addEventListener("DOMContentLoaded", function () {
 
     // Inject Chatbot HTML dynamically
@@ -14,7 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
     `;
-
     document.body.insertAdjacentHTML("beforeend", chatbotHTML);
 
+    // Now initialize chatbot functionality
+    initializeChatbot(); // <-- call function from chatbot.js
 });
