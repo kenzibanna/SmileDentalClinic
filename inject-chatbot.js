@@ -1,16 +1,20 @@
-// Inject chatbot HTML into the page, then load chatbot JS
-fetch("chatbot.html")
-  .then(response => response.text())
-  .then(html => {
-    document.body.insertAdjacentHTML("beforeend", html);
+// inject-chatbot.js (fixed - NO JSX)
 
-    // Now load chatbot JS AFTER elements exist
-    const chatbotScript = document.createElement("script");
-    chatbotScript.src = "chatbot.js";
-    document.body.appendChild(chatbotScript);
-  })
-  .catch(err => console.error("Chatbot failed to load:", err));
-<script src="inject-chatbot.js"></script>
-<link rel="stylesheet" href="chatbot.css">
-<script src="chatbot.js"></script>
-<script src="inject-chatbot.js"></script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Inject Chatbot HTML dynamically
+    const chatbotHTML = `
+        <div id="chatbot-icon">💬</div>
+        <div id="chatbot-window">
+            <div class="chatbot-header">Smile Dental Support</div>
+            <div class="chatbot-messages"></div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-text" placeholder="Type your message...">
+                <button id="chatbot-send">Send</button>
+            </div>
+        </div>
+    `;
+
+    document.body.insertAdjacentHTML("beforeend", chatbotHTML);
+
+});
